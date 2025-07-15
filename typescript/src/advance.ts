@@ -67,7 +67,10 @@ type allocate = {
     [key:string]:usera;  //iska matlab jo keyhai woh string and jo uske andar ka hai ko usera main bataya hai
 
 }
-const userxxx:allocate = {
+
+// we can write this allocate in cleaner way like with records 
+type allocaterec = Record<string,{id:string;username:string}>;
+const userxxx:allocaterec = {
     "arnav" : {
         id:'arn',
         username:'harkirat'
@@ -78,4 +81,32 @@ const userxxx:allocate = {
     },
 }
 
+////////////////////////////map//////////////////////////////////////
+type useraaa = {
+    name:string;
+    age:number;
+}
+const sers= new Map<string,useraaa>()  //you can enfore the type of map by using generics
+sers.set('id1',{name:'harkirat',age:20});
+sers.set('id2',{name:'arnav',age:30});
+const userxxxx = sers.get('id1');
 
+sers.delete("id2");
+console.log(sers);
+
+//////////////////////////////////////////////////////////////////////
+type Eventstype = 'click' | 'hover' | 'scroll';
+type EventExclude = Exclude<Eventstype, 'scroll'>;// Exclude removes 'scroll' from the type
+
+const handleEvent = (event: EventExclude) => {
+    console.log(event);
+}
+handleEvent('click'); 
+
+
+// This will log 'click' and 'hover', but not 'scroll'
+
+
+///
+const userInfo: [string, number] = ["Arnav", 21];
+// userInfo[0] is string, userInfo[1] is number
