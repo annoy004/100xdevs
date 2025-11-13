@@ -22,7 +22,7 @@ export default function Home() {
         }} size= "small" placeholder="Room name"></TextInput>
         <button onClick={() => {
           router.push("/chat/123")
-        }}>join room</button>
+        }}>join rom</button>
       </div>
     </div>
   );
